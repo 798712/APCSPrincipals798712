@@ -21,6 +21,12 @@ class Snake{
 
   update(){
     // update the segments from back to front
+    if(this.isTangled()){
+      gameState = 3;
+    }else{
+      this.loc.add(this.vel);
+    }
+
     for (var i=this.segments.length-1; i>=0; i--) {
       if (i===0) {
         // follow the head
@@ -33,7 +39,8 @@ class Snake{
       }
     }
 
-    this.loc.add(this.vel);
+
+
   }
 
   grow() {
@@ -52,24 +59,32 @@ class Snake{
 
     rect(this.loc.x, this.loc.y, this.w, this.w);
   }
-//ends game when snake hits walls.
+  //ends game when snake hits walls.
   checkEdges(){
     if(this.loc.x < 0){
-    endGame();
+      gameState = 3
     }
     if(this.loc.x > width){
-    endGame();
+      gameState = 3
     }
     if(this.loc.y < 0){
-    endGame();
+      gameState = 3
     }
     if(this.loc.y > height){
-      endGame();
+      gameState = 3
     }
   }
-  function endGame(){
-    if(this.loc === this.segments.loc){
-      endGame();
+
+  isTangled(){
+    if(this.segments.length > 1){
+      for(var i = 0; i < this.segments.length; i++){
+        if(this.loc.x === this.segments[i].x && this.loc.y === this.segments[i].y){
+          return true;
+        }
+      }
     }
+
+    return false;
+
   }
 }
