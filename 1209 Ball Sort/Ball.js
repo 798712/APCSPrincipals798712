@@ -1,40 +1,26 @@
-//  Your Name
-// 	Date or version number
-//  This is a comment
+//  Kai Seed
+// 	December 13
+//  Red ball sort
 //  The setup function function is called once when your program begins
+
 class Ball{
-  constructor(x,y,dx,dy){
+  constructor(x, y){
+    this.w = 15;
+    this.r = random(255)
+    this.clr = color(this.r, 0, 0)
     this.x = x;
     this.y = y;
-    this.dx = dx;
-    this.dy = dy;
-    this.clr = color(random(255), random(255), random(255))
-  }
-  run(){
-    this.checkEdges();
-    this.update();
-    this.render();
-  }
-  checkEdges(){
-    if(this.x < 0){
-      this.dx = -this.dx;
-    }
-    if(this.x > width){
-      this.dx = -this.dx;
-    }
-    if(this.y < 0){
-      this.dy = -this.dy;
-    }
-    if(this.y > height){
-      this.dy = -this.dy;
-    }
-  }
-  update(){
-    this.x = this.x + this.dx;
-    this.y = this.y + this.dy;
-  }
-  render(){
-    fill(this.clr);
-    ellipse(this.x, this.y, 50, 50)
+    this.w = width/20;
+}
+run(){
+  this.render();
+}
+render(){
+  fill(this.clr)
+  ellipse(this.x+20, this.y, this.w, this.w);
+}
+
+ballX(i){
+  this.x=i*40;
   }
 }

@@ -14,7 +14,7 @@ function setup() {
   findAv();
   findMedian();
 }
-
+//loading in the numbers
 function loadNumbers(n){
 for(var i = 0; i < n; i++){
   nums[i]= int(random(100));
@@ -29,6 +29,7 @@ function swap(nums,a,b){
   var temp=nums[a];
   nums[a]=nums[b]
   nums[b]=temp;
+  //telling the numbers when to swap
 }
 
 function findAv(){
