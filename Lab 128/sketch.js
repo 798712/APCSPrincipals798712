@@ -3,7 +3,6 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 var boids = []
-
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
@@ -11,7 +10,7 @@ function setup() {
   loadBoids(100);
 }
 function draw() {
-  background(255, 255, 255)
+  background(2, 2, 2)
   runBoids();
 }
 
@@ -23,6 +22,6 @@ function loadBoids(n){
 
 function runBoids(){
 for(var i = 0; i < boids.lenth; i++){
-  boids[i].run(;)
+  boids[i].run()
   }
 }
